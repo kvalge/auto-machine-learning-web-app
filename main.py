@@ -17,16 +17,17 @@ target = ''
 with st.sidebar:
     st.image("static/image.png")
     st.title("Auto Machine Learning App")
+    st.info("To upload the dataset, profile data, train the model and download the best model.")
+
     choice = st.radio("Functionalities", ["Upload", "Profiling", "Training", "Download"])
-    st.info("The application to upload the dataset, profile data, train the model and download the best model.")
 
 if os.path.exists("data/sourcedata.csv"):
     df = pd.read_csv("data/sourcedata.csv", index_col=None)
 
 
 if choice == "Upload":
-    st.title("Upload the data for modelling")
-    file = st.file_uploader("Upload the Dataset")
+    st.title("Upload Data For Modelling")
+    file = st.file_uploader("Upload the dataset")
     if file:
         df = pd.read_csv(file, index_col=None)
         df = df.dropna()
@@ -42,7 +43,7 @@ if choice == "Profiling":
 
 if choice == "Training":
     st.title("Machine Learning")
-    model_type = st.radio("Select Model Type", ["Classification", "Regression", "Clustering"])
+    model_type = st.radio("Select model type", ["Classification", "Regression", "Clustering"])
 
     if model_type == "Classification":
         target = st.selectbox("Select target", df.columns)
@@ -102,6 +103,7 @@ if choice == "Training":
 
 
 if choice == "Download":
+    st.title("Download The Best Model")
     if os.path.exists("best_model.pkl"):
         with open("best_model.pkl", "rb") as f:
             st.download_button("Download the Model", f, "trained_model.pkl")
