@@ -1,0 +1,49 @@
+Model Information:
+Pipeline(memory=FastMemory(location=)),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['year', 'Log GDP per capita',
+                                             'Social support',
+                                             'Healthy life expectancy at birth',
+                                             'Freedom to make life choices',
+                                             'Generosity',
+                                             'Perceptions of corruption',
+                                             'Positive affect',
+                                             'Negative affect'],
+                                    transformer=SimpleImputer())),
+                ('categorical...
+                 TransformerWrapper(include=['Country name'],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['Country name'],
+                                    transformer=TargetEncoder(cols=['Country '
+                                                                    'name'],
+                                                              handle_missing='return_nan'))),
+                ('clean_column_names',
+                 TransformerWrapper(transformer=CleanColumnNames())),
+                ('trained_model',
+                 ExtraTreesRegressor(n_jobs=-1, random_state=7023))])
+
+Experiment Results:
+                    Description             Value
+0                    Session id              4145
+1                        Target       Life Ladder
+2                   Target type        Regression
+3           Original data shape        (1958, 11)
+4        Transformed data shape        (1958, 11)
+5   Transformed train set shape        (1370, 11)
+6    Transformed test set shape         (588, 11)
+7              Numeric features                 9
+8          Categorical features                 1
+9                    Preprocess              True
+10              Imputation type            simple
+11           Numeric imputation              mean
+12       Categorical imputation              mode
+13     Maximum one-hot encoding                25
+14              Encoding method              None
+15               Fold Generator             KFold
+16                  Fold Number                10
+17                     CPU Jobs                -1
+18                      Use GPU             False
+19               Log Experiment             False
+20              Experiment Name  reg-default-name
+21                          USI              a916
