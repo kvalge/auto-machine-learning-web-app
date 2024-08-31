@@ -21,11 +21,11 @@ Pipeline(memory=FastMemory(location=)),
                 ('clean_column_names',
                  TransformerWrapper(transformer=CleanColumnNames())),
                 ('trained_model',
-                 ExtraTreesRegressor(n_jobs=-1, random_state=7023))])
+                 ExtraTreesRegressor(n_jobs=-1, random_state=6662))])
 
 Experiment Results:
                     Description             Value
-0                    Session id              4145
+0                    Session id              5825
 1                        Target       Life Ladder
 2                   Target type        Regression
 3           Original data shape        (1958, 11)
@@ -46,4 +46,4 @@ Experiment Results:
 18                      Use GPU             False
 19               Log Experiment             False
 20              Experiment Name  reg-default-name
-21                          USI              a916
+21                          USI              89d5

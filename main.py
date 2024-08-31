@@ -15,7 +15,7 @@ target = ''
 
 
 with st.sidebar:
-    st.image("static/image.jpg")
+    st.image("static/image.png")
     st.title("Auto Machine Learning App")
     choice = st.radio("Functionalities", ["Upload", "Profiling", "Training", "Download"])
     st.info("The application to upload the dataset, profile data, train the model and download the best model.")
